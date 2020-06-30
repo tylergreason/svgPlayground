@@ -1,0 +1,91 @@
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+#svgPlayground {
+  width: 100vw;
+  height: 100vh;
+  background-color: blue;
+  display: none;
+}
+
+/* rect {
+    width: 200px; 
+    height: 20px; 
+    fill: green;
+} */
+.wide {
+  width: 400px;
+}
+
+#rectangle {
+  width: 100px;
+  height: 200px;
+  -webkit-transform: rotate(-30deg);
+          transform: rotate(-30deg);
+  x: 0;
+  y: 50px;
+  fill: red;
+  color: white;
+}
+
+.rectangle2 {
+  width: 100px;
+  height: 100px;
+  x: 20px;
+  y: 20px;
+  fill: green;
+}
+
+.rotated {
+  -webkit-transition: 1s;
+  transition: 1s;
+  y: 0px;
+  /* transform: rotate(360deg); */
+}
+
+#rectDiv {
+  width: 200px;
+  height: 10vw;
+  position: absolute;
+  left: 50vw;
+  background-color: brown;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-name: rectDivSlideIn;
+          animation-name: rectDivSlideIn;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes rectDivSlideIn {
+  from {
+    top: 100vh;
+  }
+  to {
+    top: 0;
+    -webkit-transform: rotate(40deg);
+            transform: rotate(40deg);
+  }
+}
+
+@keyframes rectDivSlideIn {
+  from {
+    top: 100vh;
+  }
+  to {
+    top: 0;
+    -webkit-transform: rotate(40deg);
+            transform: rotate(40deg);
+  }
+}
+
+.wka {
+  width: 200px;
+  height: 100px;
+  background-color: blue;
+}
+/*# sourceMappingURL=style.css.map */

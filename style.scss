@@ -1,0 +1,76 @@
+body {
+    width: 100vw; 
+    height: 100vh; 
+}
+#svgPlayground {
+    width: 100vw; 
+    height: 100vh; 
+    background-color: blue;
+    display: none;
+}
+
+/* rect {
+    width: 200px; 
+    height: 20px; 
+    fill: green;
+} */
+
+.wide {
+    width: 400px; 
+}
+
+#rectangle {
+    width: 100px; 
+    height: 200px; 
+    transform: rotate(-30deg);
+    x: 0; 
+    y: 50px;
+    fill: red;
+    color: white;
+}
+
+.rectangle2 {
+    width: 100px; 
+    height: 100px; 
+    x: 20px; 
+    y: 20px;
+    fill: green;
+}
+
+.rotated {
+    transition: 1s;
+    y: 0px;
+    /* transform: rotate(360deg); */
+}
+
+
+
+$divHeight: 10vw; 
+#rectDiv {
+    width: 200px; 
+    height: $divHeight; 
+    position: absolute; 
+    // top: 0px; 
+    left: 50vw; 
+    background-color: brown;
+    animation-duration: 1s;
+    animation-name: rectDivSlideIn;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rectDivSlideIn{
+    from {
+        top: 100vh; 
+    }
+    to {
+        top: 0; 
+        transform: rotate(40deg);
+    }
+}
+
+.wka {
+    width: 200px; 
+    height: 100px; 
+    background-color: blue;
+}
