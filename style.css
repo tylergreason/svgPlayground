@@ -87,6 +87,7 @@ body {
   height: 100px;
   background-color: lightblue;
   position: absolute;
+  bottom: 50vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -98,17 +99,18 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
-  border: 2px solid black;
   border-radius: 10px;
-  padding: 10px;
 }
 
 .wka:hover {
   background-color: lightcoral;
 }
 
-#newEle {
-  position: absolute;
+.anotherWKA {
+  width: 25%;
+}
+
+#newDiv {
   top: 0;
   left: 50vw;
   height: 200px;
