@@ -118,4 +118,11 @@ body {
   margin: auto;
   background-color: green;
 }
+
+.meteor {
+  width: 30vw;
+  height: 5vh;
+  border-radius: 20px;
+  position: absolute;
+}
 /*# sourceMappingURL=style.css.map */

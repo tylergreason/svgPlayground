@@ -1,3 +1,4 @@
+let width = window.innerWidth;
 let height = window.innerHeight;
 let targets = document.querySelectorAll('.wka, .anotherWKA')
 let wkaHeight = window.getComputedStyle(targets[0]).height;
@@ -24,15 +25,27 @@ let menuUp = anime({
     // easing: 'linear',
     duration: 800,
     autoplay: false,
-    // keyframes: [
-    //     {translateY: -40},
-    //     {translateX: 250},
-    //     {translateY: 40},
-    //     {translateX: 0},
-    //     {translateY: 0}
-    //   ],
     // delay: anime.stagger(100),
     // rotate: '1turn'
+})
+
+let meteorAni = anime({
+    targets: '.meteor',
+    // duration: 0,
+    // left: anime.random(0, 100)
+    left: {
+        value: function(){return anime.random(width/2 - 100, width/2 + 100)},
+        duration: 0
+    },
+    bottom: {
+        value: 0,
+        duration: 0
+    },
+    rotate: {
+        value: 135, 
+        duration: 0
+    },
+    backgroundColor: 'rgb(244, 86, 255)',
 })
 
 targets[4].addEventListener('click', () => {
