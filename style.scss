@@ -1,6 +1,7 @@
 body {
     width: 100vw; 
     height: 100vh; 
+    margin: 0px; 
 }
 #svgPlayground {
     width: 100vw; 
@@ -54,7 +55,7 @@ $divHeight: 10vw;
     left: 50vw; 
     background-color: brown;
     animation-duration: 1s;
-    animation-name: rectDivSlideIn;
+    // animation-name: rectDivSlideIn;
     animation-direction: alternate;
     animation-iteration-count: infinite;
 }
@@ -72,5 +73,28 @@ $divHeight: 10vw;
 .wka {
     width: 200px; 
     height: 100px; 
-    background-color: blue;
+    background-color: lightblue;
+    position: absolute; 
+    display: flex; 
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid black; 
+    border-radius: 10px;
+    padding: 10px;
+
+    &:hover {
+        background-color: lightcoral;
+    }
 }
+
+#newEle{
+    position: absolute; 
+    top: 0; 
+    left: 50vw; 
+    height: 200px; 
+    width: 200px;
+    margin: auto; 
+    background-color: green;
+}
+

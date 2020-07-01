@@ -1,6 +1,7 @@
 body {
   width: 100vw;
   height: 100vh;
+  margin: 0px;
 }
 
 #svgPlayground {
@@ -53,8 +54,6 @@ body {
   background-color: brown;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
-  -webkit-animation-name: rectDivSlideIn;
-          animation-name: rectDivSlideIn;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
   -webkit-animation-iteration-count: infinite;
@@ -86,6 +85,35 @@ body {
 .wka {
   width: 200px;
   height: 100px;
-  background-color: blue;
+  background-color: lightblue;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.wka:hover {
+  background-color: lightcoral;
+}
+
+#newEle {
+  position: absolute;
+  top: 0;
+  left: 50vw;
+  height: 200px;
+  width: 200px;
+  margin: auto;
+  background-color: green;
 }
 /*# sourceMappingURL=style.css.map */

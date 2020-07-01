@@ -3,10 +3,10 @@ let rect = document.createElement('rect');
 rect.height = '500px';
 rect.width = '100px';
 rect.fill = 'green'
-const body = Array.from(document.getElementsByTagName('body'))[0]
+// const body = Array.from(document.getElementsByTagName('body'))[0]
 const svgPlayground = document.getElementById('svgPlayground');
 // svgPlayground.style.height = '200px'
-console.log(svgPlayground.style.height)
+// console.log(svgPlayground.style.height)
 svgPlayground.appendChild(rect); 
 
 
@@ -22,3 +22,48 @@ a.classList.add("rectangle2");
 
 
 // webkit animations 
+
+// keyframe array
+const kfaFun = heightOffset => {
+
+    return [
+        {top: '100vh'},
+        {top: `${0 + heightOffset}px`}
+    ]
+}
+
+// timing properties 
+let tp = {
+    duration: 1000, 
+    easing: 'steps(60, end)',
+    fill: 'forwards'
+    // iterations: Infinity
+}
+
+// make array of elements to animate 
+const eleToAnimate = Array.from(document.getElementsByClassName('wka')); 
+
+// animate the elements 
+eleToAnimate.forEach((ele, index) => {
+    let styles = window.getComputedStyle(ele); 
+    
+    let ani = ele.animate(kfaFun(index*150), tp)
+    // change inner text to represent place in the array 
+    ele.innerText = `my place in the array is ${index}`
+    ele.addEventListener('click', e => {
+        console.log(index);
+    })
+})
+
+let newEle = document.createRange().createContextualFragment(`
+        <span id='newEle'>
+            This is my new ele div
+            <br>
+            <br>
+            <br>
+            <div>This is another new element</div>
+        </span>
+        `)
+const body = Array.from(document.getElementsByTagName('body'))[0]
+
+body.appendChild(newEle)
