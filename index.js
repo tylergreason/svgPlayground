@@ -107,13 +107,15 @@ let timing = {
 }
 // const forwardsAnimation = newDiv.animate(framesForwards, timing); 
 // create functions to raise and lower div 
-const raiseDiv = () => {
-    console.log(eleHeight(newDiv));
-    newDiv.animate(framesForwards(newDiv), timing);
+const raiseDiv = (ele) => {
+    ele.animate(framesForwards(ele), timing);
 }
 
-const lowerDiv = () => {
-    newDiv.animate(framesBackwards(newDiv), timing);
+const lowerDiv = (ele) => {
+    ele.animate(framesBackwards(ele), timing);
     // debugger
     // {...timing, fill: 'backwards'}
 }
+
+let wkas = Array.from(document.getElementsByClassName('wka')); 
+wkas.forEach(ele => raiseDiv(ele))
