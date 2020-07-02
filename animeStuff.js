@@ -3,15 +3,8 @@ let height = window.innerHeight;
 let targets = document.querySelectorAll('.wka, .anotherWKA')
 let wkaHeight = window.getComputedStyle(targets[0]).height;
 
-anime({
-    targets: '.anotherWKA', 
-    // top: 0,
-    // right: 500,
-    easing: 'linear',
-    rotate: '1turn'
-})
 
-let menuUp = anime({
+let menuUpOptions ={
     targets: '.wka', 
     top: function(wka, i, l){
         console.log(wka);
@@ -20,14 +13,24 @@ let menuUp = anime({
         return 0 + (i * 100)
     },
     // loop: true,
-    easing: 'spring(1, 800, 100, 0)',
+    // easing: 'spring(1, 800, 100, 0)',
+    easing: 'easeInOutSine',
     // left: 10,
     // easing: 'linear',
-    duration: 800,
+    duration: 500,
+    delay: anime.stagger(50),
     autoplay: false,
     // delay: anime.stagger(100),
     // rotate: '1turn'
-})
+}; 
+
+let menuUp = anime(menuUpOptions)
+
+// let menuDownOptions = {...menuUpOptions, direction: 'reverse'}; 
+
+// let menuDown = anime(menuDownOptions)
+
+
 
 let meteorAni = anime({
     targets: '.meteor',
@@ -48,15 +51,35 @@ let meteorAni = anime({
     backgroundColor: 'rgb(244, 86, 255)',
 })
 
+let meteorHover = anime({
+    targets: '.meteors', 
+    translateX: {
+        value: function(){
+            return anime.random(-10,10)
+        }
+    },
+    loop: true, 
+    direction: 'alternate',
+    easing: 'easeInOutSine'
+})
+
+let meteorMove = anime({
+    targets: '.meteors',
+    top: 1000
+})
+
 targets[4].addEventListener('click', () => {
     menuUp.direction = "normal"; 
     menuUp.play();
 })
 
 targets[0].addEventListener('click', () => {
-    console.log(menuUp);
+    // console.log(menuUp);
+
     menuUp.reverse(); 
-    menuUp.play(); 
+    menuUp.play();
+
+    // menuDown.play()
     // if (menuUp.completed !== true){
     //     menuUp.reverse();
     // }else{
@@ -64,3 +87,6 @@ targets[0].addEventListener('click', () => {
         // menuUp.direction = "reverse"; 
     // }
 })
+
+
+

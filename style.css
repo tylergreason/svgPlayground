@@ -125,4 +125,8 @@ body {
   border-radius: 20px;
   position: absolute;
 }
+
+.meteors {
+  position: fixed;
+}
 /*# sourceMappingURL=style.css.map */
