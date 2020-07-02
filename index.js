@@ -1,3 +1,6 @@
+const height = window.innerHeight; 
+const width = window.innerWidth; 
+
 // make rectangle, append it to SVG div, manipulate its coordinates 
 let rect = document.createElement('rect'); 
 rect.height = '500px';
@@ -55,15 +58,62 @@ eleToAnimate.forEach((ele, index) => {
     // })
 })
 // create a range, then with that range create an HTML fragement 
-let newEle = document.createRange().createContextualFragment(
-        // wrap document fragments in a div or span, but only the elements inside that can be modified like normal elements
-        `
-        <div id='newEle'>
-            <div id='newDiv'>This is another new element
-                <div>This is another new element</div>
-            </div>
+// let newEle = document.createRange().createContextualFragment(
+//         // wrap document fragments in a div or span, but only the elements inside that can be modified like normal elements
+//         `
+//         <div id='newEle'>
+//             <div id='newDiv'>This is another new element
+//                 <div>This is another new element</div>
+//             </div>
+//         </div>
+//         `)
+
+// make document fragment with id='newEle' 
+document.body.appendChild(document.createRange().createContextualFragment(
+    // wrap document fragments in a div or span, but only the elements inside that can be modified like normal elements
+    `
+    <div id='newEle'>
+        <div id='newDiv'>This is another new element
+            <div>This is another new element</div>
         </div>
-        `)
+    </div>
+    `))
 
-document.body.appendChild(newEle)
+// function to find argument element's current height 
+const eleHeight = ele => {
+    return window.getComputedStyle(ele).top;
+}
+// animate newDiv
+// create frames 
+let framesForwards = ele => {
+    return [
+        {top: eleHeight(ele), easing: 'ease'},
+        {top: '50vh'},
+    ]
+}
 
+let framesBackwards = (ele) =>{
+    return [
+        {top: eleHeight(ele), easing: 'ease'},
+        {top: '100vh'},
+    ]
+}
+// create timing 
+let timing = {
+    duration: 500, 
+    // loop: true,
+    // iterations: Infinity,
+    fill: 'forwards'
+}
+// const forwardsAnimation = newDiv.animate(framesForwards, timing); 
+// create functions to raise and lower div 
+const raiseDiv = () => {
+    console.log(eleHeight(newDiv));
+    newDiv.animate(framesForwards(newDiv), timing);
+}
+
+const lowerDiv = () => {
+    newDiv.animate(framesBackwards(newDiv), timing);
+    // debugger
+    // {...timing, fill: 'backwards'}
+}

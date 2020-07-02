@@ -113,6 +113,14 @@ $divHeight: 10vw;
 }
 
 .meteors {
-    position: fixed; 
-    
+    position: fixed;    
+}
+
+#newDiv {
+    position: fixed;
+    top: 100%;
+    left: 50px;
+    transform: rotate(330deg);
+    background-color: blue;
+    easing: ease; 
 }

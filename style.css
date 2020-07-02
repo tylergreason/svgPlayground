@@ -129,4 +129,14 @@ body {
 .meteors {
   position: fixed;
 }
+
+#newDiv {
+  position: fixed;
+  top: 100%;
+  left: 50px;
+  -webkit-transform: rotate(330deg);
+          transform: rotate(330deg);
+  background-color: blue;
+  easing: ease;
+}
 /*# sourceMappingURL=style.css.map */
