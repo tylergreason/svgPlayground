@@ -119,7 +119,3 @@ const lowerDiv = (ele) => {
     ele.animate(framesBackwards(ele), timing);
 }
 
-let wkas = Array.from(document.getElementsByClassName('wka')); 
-wkas.forEach(ele => raiseDiv(ele))
-
-// function to raise collection of elements 
