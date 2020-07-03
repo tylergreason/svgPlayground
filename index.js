@@ -83,18 +83,22 @@ document.body.appendChild(document.createRange().createContextualFragment(
 const eleHeight = ele => {
     return window.getComputedStyle(ele).top;
 }
+
+const eleStyle = ele => {
+    return window.getComputedStyle(ele); 
+}
 // animate newDiv
 // create frames 
 let framesForwards = ele => {
     return [
-        {top: eleHeight(ele), easing: 'ease'},
+        {top: eleStyle(ele).top, easing: 'ease'},
         {top: '50vh'},
     ]
 }
 
-let framesBackwards = (ele) =>{
+let framesBackwards = ele =>{
     return [
-        {top: eleHeight(ele), easing: 'ease'},
+        {top: eleStyle(ele).top, easing: 'ease'},
         {top: '100vh'},
     ]
 }
@@ -113,9 +117,9 @@ const raiseDiv = (ele) => {
 
 const lowerDiv = (ele) => {
     ele.animate(framesBackwards(ele), timing);
-    // debugger
-    // {...timing, fill: 'backwards'}
 }
 
 let wkas = Array.from(document.getElementsByClassName('wka')); 
 wkas.forEach(ele => raiseDiv(ele))
+
+// function to raise collection of elements 
