@@ -8,16 +8,16 @@ let framesUp = (ele,i) => {
     
     // move element to a certain position - (height * i)
     return [
-        {top:eleTop+'px', easing: 'ease'},
+        {top:eleTop+'px', left:'0px', easing: 'ease'},
         // {top:`${0 + (eleHeight * i)}px`, easing: 'ease'},
-        {top:`${0 + (eleHeight * i)}px`},
+        {top:`${0 + (eleHeight * i)}px`, left:'0px'},
     ]
 }
 
 // function to return lowering frames 
 let framesDown = (ele,i) => {
     // find element's height  
-    let eleHeight = parseStyleValue(eleStyle(ele).height); 
+    // let eleHeight = parseStyleValue(eleStyle(ele).height); 
     let eleTop = parseStyleValue(eleStyle(ele).top); 
     
     // move element to a certain position - (height * i)
@@ -25,6 +25,19 @@ let framesDown = (ele,i) => {
         {top:eleTop+'px', easing: 'ease'},
         // {top:`${0 + (eleHeight * i)}px`, easing: 'ease'},
         {top:`100vh`},
+    ]
+}
+
+let framesLeft = (ele) => {
+    // find width and left values
+    let eleWidth = parseStyleValue(eleStyle(ele).width); 
+    let eleLeft = parseStyleValue(eleStyle(ele).left); 
+    
+    // move element to a certain position - (height * i)
+    return [
+        {left:eleLeft+'px', easing: 'ease'},
+        // {top:`${0 + (eleHeight * i)}px`, easing: 'ease'},
+        {left:`${0 - eleWidth}px`},
     ]
 }
 
@@ -39,5 +52,16 @@ const raiseEles = array => {
 const lowerEles = array => {
     array.forEach((ele, index) => {
         ele.animate(framesDown(ele, index), {duration: 500, fill: 'forwards'})
+    })
+}
+
+const moveElesLeft = array => {
+    array.forEach((ele, index) =>{
+        window.setTimeout(
+            function (){
+                ele.animate(framesLeft(ele), {duration: 500, fill:'forwards'})
+            }, 
+            50*index
+            )
     })
 }
