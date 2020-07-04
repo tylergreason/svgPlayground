@@ -124,3 +124,16 @@ $divHeight: 10vw;
     background-color: blue;
     easing: ease; 
 }
+
+.card__container {
+    width: 200px; 
+    height: 100px; 
+    background-color: blue;
+    display: grid; 
+    grid-column: 11;
+    grid-row: 4;
+}
+
+ul {
+    background-color: green;
+}
