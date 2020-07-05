@@ -17,7 +17,7 @@ const createUnorderedList = array =>{
     return list + '</ul>'; 
 }
 
-let sampleArray = [1,2,3,4, '1']; 
+let sampleArray = ['Aliqua esse ea ipsum et adipisicing nisi cupidatat.','Exercitation reprehenderit duis proident quis velit duis culpa laboris dolore cillum quis.','Tempor minim nulla aute aliqua occaecat tempor quis labore nostrud irure anim ut.']; 
 
 const createCard = (array) => {
     return document.createRange().createContextualFragment(`
@@ -25,7 +25,6 @@ const createCard = (array) => {
             <div class='card--left'>
             </div>
             <div class='card--info__container card--right'>
-                <li>this is a list item</li>
                     ${createUnorderedList(array)}
             </div>
         </div>
