@@ -9,16 +9,12 @@ const createFragment = () => {
         )
 }
 
-const createUnorderedList = array => {
-    let list = document.createRange().createContextualFragment('<ul></ul>')
-    // outside.appendChild(list); 
+const createUnorderedList = array =>{
+    let list = '<ul>'
     array.forEach(ele => {
-        // add text in ele (assuming it's a string) to the li that's appended to the ul here: 
-        let lI = document.createElement('li'); 
-        lI.innerText = ele; 
-        return list.appendChild(lI);
+        list += `<li>${ele}</li>`
     })
-    return list; 
+    return list + '</ul>'; 
 }
 
 let sampleArray = [1,2,3,4, '1']; 
@@ -29,6 +25,7 @@ const createCard = (array) => {
             <div class='card--left'>
             </div>
             <div class='card--info__container card--right'>
+                <li>this is a list item</li>
                     ${createUnorderedList(array)}
             </div>
         </div>
@@ -38,4 +35,4 @@ const createCard = (array) => {
 
 // test above function 
 let test = createCard(sampleArray) 
-document.body.append(test); 
+document.body.appendChild(test); 
